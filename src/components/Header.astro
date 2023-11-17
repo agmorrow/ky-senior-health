@@ -1,0 +1,68 @@
+---
+import Button from "../components/Button.astro";
+---
+
+  <div class="main">
+    <div class="content">
+      <div class="text">
+        <div class="spacing">
+          <div class="ky-senior">KY Senior<span class="health">Health</span></div>
+          <div class="button"><Button /></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<style>
+  .main {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 40;
+    padding-top: 3.5rem;
+  }
+
+  .content {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 80rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .text {
+    max-width: 77rem;
+  }
+
+  .spacing {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .button {
+    align-items: center;
+    display: flex;
+  }
+
+  .ky-senior {
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  .health {
+    font-weight: 100;
+  }
+
+  @media (main-width: 1024px) {
+    .content {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    .text {
+      max-width: none;
+    }
+  }
+</style>

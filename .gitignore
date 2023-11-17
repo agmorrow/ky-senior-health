@@ -1,1 +1,19 @@
-node_modules
+# Node.js
+node_modules/
+
+# Astro output directory
+dist/
+
+# IDE and editor files
+.idea/
+.vscode/
+
+# Logs
+npm-debug.log*
+
+# Environment variables
+.env
+.env.local
+
+# Mac OS
+.DS_Store

@@ -1,18 +1,16 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from '../layouts/Layout.astro';
+import HeroSection from '../components/HeroSection.astro';
+import Contact from '../components/Contact.astro';
 ---
 
-<Layout>
+<Layout title="KY Senior Health">
+  <main class="space-y-40 mb-40">
+    <HeroSection />
+    <Contact />
+  </main>
 </Layout>
 
 <style>
-  main {
-    margin: auto;
-    padding: 1rem;
-    width: 800px;
-    max-width: calc(100% - 2rem);
-    color: white;
-    font-size: 20px;
-    line-height: 1.6;
-  }
+
 </style>

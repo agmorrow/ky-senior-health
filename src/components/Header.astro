@@ -1,68 +1,25 @@
 ---
+import Container from "../components/Container.astro";
 import Button from "../components/Button.astro";
 ---
 
-  <div class="main">
-    <div class="content">
-      <div class="text">
-        <div class="spacing">
-          <div class="ky-senior">KY Senior<span class="health">Health</span></div>
-          <div class="button"><Button /></div>
+<header>
+  <nav
+    class="absolute z-10 w-full border-b border-black/5 dark:border-white/5 lg:border-transparent"
+  >
+    <Container>
+      <div
+        class="relative flex flex-wrap items-center justify-between gap-6 py-3 md:gap-0 md:py-4"
+      >
+        <div class="relative z-20 flex w-full justify-between md:px-0 lg:w-max">
+          <div aria-label="logo" class="flex items-center text-lg">
+            <div aria-hidden="true" class="flex space-x-1 font-semibold">KY Senior</div>
+            <span class="font-light">Health</span>
+          </div>
         </div>
+
+        <Button />
       </div>
-    </div>
-  </div>
-
-<style>
-  .main {
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    z-index: 40;
-    padding-top: 3.5rem;
-  }
-
-  .content {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 80rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
-
-  .text {
-    max-width: 77rem;
-  }
-
-  .spacing {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .button {
-    align-items: center;
-    display: flex;
-  }
-
-  .ky-senior {
-    font-weight: bold;
-    font-size: 20px;
-  }
-
-  .health {
-    font-weight: 100;
-  }
-
-  @media (main-width: 1024px) {
-    .content {
-      padding-left: 2rem;
-      padding-right: 2rem;
-    }
-
-    .text {
-      max-width: none;
-    }
-  }
-</style>
+    </Container>
+  </nav>
+</header>

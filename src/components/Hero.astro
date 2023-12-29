@@ -13,19 +13,19 @@ import Zach from "../assets/images/zach.jpg";
           <h1 class="text-4xl font-bold tracking-tight text-black sm:text-6xl">
             Helping Retirees Make Confident Medicare Decisions
           </h1>
-  
-          <div class="mt-10 flex items-center justify-start gap-x-6">
-            <div class="flex gap-2 items-center justify-center rounded-md border-2 border-solid border-black bg-black px-6 py-3 font-semibold text-white hover:cursor-pointer hover:bg-gray-800">
+
+          <div class="mt-10 flex flex-col sm:flex-row items-start justify-start gap-x-6">
+            <div class="flex gap-2 items-center justify-center rounded-md border-2 border-solid border-black bg-black px-6 py-3 font-semibold text-white hover:cursor-pointer hover:bg-gray-800" onclick="showAlert()">
               <Icon class="text-white w-4 h-4" name="lucide:download" />
               Free resources
             </div>
             
-            <a href="#contact">
-            <div class="flex gap-2 items-center justify-center rounded-xl border-2 border-solid border-black bg-white px-6 py-3 font-semibold text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] hover:cursor-pointer active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none">
-              Schedule an appointment
-              <Icon class="text-black w-4 h-4 rotate-90" name="mdi:arrow-up" />
-            </div>
-          </a>
+            <a href="#contact" class="mt-4 sm:mt-0">
+              <div class="flex gap-2 items-center justify-center rounded-xl border-2 border-solid border-black bg-white px-6 py-3 font-semibold text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] hover:cursor-pointer active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none">
+                Schedule an appointment
+                <Icon class="text-black w-4 h-4 rotate-90" name="mdi:arrow-up" />
+              </div>
+            </a>
           </div>
         </div>
       </div>
@@ -37,3 +37,9 @@ import Zach from "../assets/images/zach.jpg";
   </main>
   
 </Container>
+
+<script defer>
+  function showAlert() {
+    alert('Button clicked!');
+  }
+</script>

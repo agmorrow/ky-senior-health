@@ -51,15 +51,15 @@ document.getElementById('downloadButton').addEventListener('click', function() {
     link.style.display = 'none';
     document.body.appendChild(link);
 
-    var fileUrls = [
-      'src/assets/AEP Plan Review.pdf',
-      'src/assets/The 6 Gaps of Original Medicare.pdf',
-      'src/assets/Turning65.pdf'
+     var files = [
+        { url: 'src/assets/AEP Plan Review.pdf', name: 'AEP Plan Review.pdf' },
+        { url: 'src/assets/The 6 Gaps of Original Medicare.pdf', name: 'The 6 Gaps of Original Medicare.pdf' },
+        { url: 'src/assets/Turning65.pdf', name: 'Turning65.pdf' }
     ];
 
-    fileUrls.forEach(function(url) {
-      link.setAttribute('href', url);
-      link.setAttribute('download', '');
+    files.forEach(function(file) {
+      link.setAttribute('href', file.url);
+      link.setAttribute('download', file.name);
       link.click();
     });
 

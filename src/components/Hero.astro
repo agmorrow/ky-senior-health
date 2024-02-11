@@ -42,28 +42,34 @@ import Zach from "../assets/images/zach.jpg";
 </Container>
 
 <script defer>
-document.getElementById('downloadButton').addEventListener('click', function() {
-    downloadFiles();
-});
-
+  document.getElementById('downloadButton').addEventListener('click', function() {
+      downloadFiles();
+  });
+  
   function downloadFiles() {
-    var link = document.createElement('a');
-    link.style.display = 'none';
-    document.body.appendChild(link);
-
-     var files = [
-        { url: 'src/assets/AEPPlanReview.pdf', name: 'AEP Plan Review' },
-        { url: 'src/assets/The6GapsofOriginalMedicare.pdf', name: 'The 6 Gaps of Original Medicare' },
-        { url: 'src/assets/Turning65.pdf', name: 'Turning 65' }
-    ];
-
-    files.forEach(function(file) {
-      link.setAttribute('href', file.url);
-      link.setAttribute('download', file.name);
-      link.click();
-    });
-
-    document.body.removeChild(link);
-
+      var link = document.createElement('a');
+      link.style.display = 'none';
+      document.body.appendChild(link);
+  
+      var files = [
+          { url: '/assets/AEPPlanReview.pdf', name: 'AEP Plan Review' },
+          { url: '/assets/The6GapsofOriginalMedicare.pdf', name: 'The 6 Gaps of Original Medicare' },
+          { url: '/assets/Turning65.pdf', name: 'Turning 65' }
+      ];
+  
+      files.forEach(function(file) {
+          fetch(file.url)
+              .then(response => response.blob())
+              .then(blob => {
+                  var blobUrl = URL.createObjectURL(blob);
+                  link.setAttribute('href', blobUrl);
+                  link.setAttribute('download', file.name);
+                  link.click();
+                  URL.revokeObjectURL(blobUrl); 
+              });
+      });
+  
+      document.body.removeChild(link);
   }
-</script>
+  </script>
+  

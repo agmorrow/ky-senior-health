@@ -99,8 +99,10 @@ import Zach from "../assets/images/zach.jpg";
 
             document.body.removeChild(link);
 
-            // Continue to the next file
-            downloadFile(index + 1);
+            // Continue to the next file after a slight delay
+            setTimeout(() => {
+              downloadFile(index + 1);
+            }, 100); // Adjust this delay if necessary
           });
       }
     }

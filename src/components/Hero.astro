@@ -8,7 +8,7 @@ import Zach from "../assets/images/zach.jpg";
   <main class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-56 md:pb-24">
     <!-- Left Column (Text) -->
     <div class="w-full flex-auto">
-      <div class="mx-auto max-w-7xl py-32 sm:py-24 lg:py-24 mt-14 sm:mt-0 justify-start">
+      <div class="mx-auto max-w-7xl py-20 sm:py-32 lg:py-24 mt-14 sm:mt-0 justify-start">
         <div class="max-w-2xl py-2">
       
           <h1 class="text-4xl font-bold tracking-tight text-black sm:text-6xl">
@@ -34,7 +34,7 @@ import Zach from "../assets/images/zach.jpg";
       </div>
     </div>
     <div class="w-full flex-auto flex items-center justify-center">
-      <img src={Zach.src} alt="Your Image Alt Text" class="max-w-full h-[525px] rounded-3xl">
+      <img src={Zach.src} alt="Your Image Alt Text" class="max-w-full sm:h-[525px] rounded-3xl">
   </div>
   
   </main>
@@ -47,29 +47,39 @@ import Zach from "../assets/images/zach.jpg";
   });
   
   function downloadFiles() {
-      var link = document.createElement('a');
-      link.style.display = 'none';
-      document.body.appendChild(link);
-  
       var files = [
+          { url: '/assets/Turning65.pdf', name: 'Turning 65' },
           { url: '/assets/AEPPlanReview.pdf', name: 'AEP Plan Review' },
           { url: '/assets/The6GapsofOriginalMedicare.pdf', name: 'The 6 Gaps of Original Medicare' },
-          { url: '/assets/Turning65.pdf', name: 'Turning 65' }
       ];
-  
-      files.forEach(function(file) {
-          fetch(file.url)
-              .then(response => response.blob())
-              .then(blob => {
-                  var blobUrl = URL.createObjectURL(blob);
-                  link.setAttribute('href', blobUrl);
-                  link.setAttribute('download', file.name);
-                  link.click();
-                  URL.revokeObjectURL(blobUrl); 
-              });
-      });
-  
-      document.body.removeChild(link);
+
+      // Use a recursive function to download files sequentially
+      function downloadFile(index) {
+          if (index < files.length) {
+              var link = document.createElement('a');
+              link.style.display = 'none';
+              document.body.appendChild(link);
+
+              fetch(files[index].url)
+                  .then(response => response.blob())
+                  .then(blob => {
+                      var blobUrl = URL.createObjectURL(blob);
+                      link.setAttribute('href', blobUrl);
+                      link.setAttribute('download', files[index].name);
+                      link.click();
+                      URL.revokeObjectURL(blobUrl);
+
+                      document.body.removeChild(link);
+
+                      // Continue to the next file
+                      downloadFile(index + 1);
+                  });
+          }
+      }
+
+      // Start downloading files from the first one
+      downloadFile(0);
   }
-  </script>
+</script>
+
   
